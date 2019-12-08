@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!-- Autor: xhladi23 -->
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:sys="clr-namespace:System;assembly=netstandard"
+             xmlns:Skripty="clr-namespace:ITU_mb.Skripty"
+             mc:Ignorable="d"
+             x:Class="ITU_mb.Stránky.Platby">
+
+    <ContentPage.BindingContext>
+        <Skripty:ViewModel/>
+    </ContentPage.BindingContext>
+
+    <NavigationPage.TitleView>
+        <Label Text="Nová platba" HorizontalTextAlignment="Center" FontSize="30" FontAttributes="Bold" TextColor="White" />
+    </NavigationPage.TitleView>
+    
+    <ContentPage.Content>
+        
+        <ScrollView>
+            <StackLayout Spacing="0" Padding="10,0">
+                <Skripty:ComboBox x:Name="ComboBox" Title="Vyber účet" FontSize="22" FontAttributes="Bold" BackgroundColor="Black" TextColor="White" ItemsSource="{Binding Ucty}" ItemDisplayBinding="{Binding NazevUctu}" SelectedIndexChanged="VyberUcet" Visual="Material"/>
+                <Grid BackgroundColor="DarkGray">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <Label Text="Zůstatek" Grid.Column="0" HorizontalTextAlignment="Start" FontAttributes="Bold" FontSize="19" TextColor="Black" />
+                    <Label x:Name="ZustatekLabel" Grid.Column="1" HorizontalTextAlignment="End" FontAttributes="Bold"  FontSize="19" TextColor="Black"/>
+                </Grid>
+                <Label Text="Účet příjemce" TextColor="Black"/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <Entry Keyboard="Numeric" Grid.Column="0" MaxLength="6" />
+                    <Label Text=" - " Grid.Column="1" VerticalTextAlignment="Center" TextColor="Black"/>
+                    <Entry Keyboard="Telephone" Grid.Column="2" MaxLength="10"/>
+                    <Label Text=" / " Grid.Column="3" VerticalTextAlignment="Center" TextColor="Black"/>
+                    <Entry Keyboard="Numeric" Grid.Column="4" MaxLength="4"/>
+                </Grid>
+                <Label Text="Částka" TextColor="Black"/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="5*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Entry Keyboard="Numeric" Grid.Column="0"/>
+                    <Picker SelectedItem="SMS" x:Name="MenaPicker" Grid.Column="1" SelectedIndexChanged="ZmenaMeny">
+                        <Picker.Items >
+                            <x:String>CZK</x:String>
+                            <x:String>EUR</x:String>
+                        </Picker.Items>
+                    </Picker>
+                </Grid>
+                <Label Text="Datum splatnosti" TextColor="Black"/>
+                <DatePicker VerticalOptions="CenterAndExpand" Date="{x:Static sys:DateTime.Now}">
+                    <DatePicker.Format>dd.MM.yyyy</DatePicker.Format>
+                </DatePicker>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Label Text="Variabilní symbol" Grid.Column="0" Grid.Row="0" HorizontalTextAlignment="Center" TextColor="Black"/>
+                    <Entry Keyboard="Numeric" Grid.Column="0" Grid.Row="1" MaxLength="10"/>
+                    <Label Text="Konstatní symbol" Grid.Column="2" Grid.Row="0" HorizontalTextAlignment="Center" TextColor="Black"/>
+                    <Entry Keyboard="Numeric" Grid.Column="2" Grid.Row="1" MaxLength="10"/>
+                    <Label Text="Specifický symbol" Grid.Column="4" Grid.Row="0" HorizontalTextAlignment="Center" TextColor="Black"/>
+                    <Entry Keyboard="Numeric" Grid.Column="4" Grid.Row="1" MaxLength="10"/>
+                </Grid>
+                <Label Text="Zpráva pro příjemce" TextColor="Black"/>
+                <Entry Keyboard="Default"/>
+                <Label Text="Zpráva pro mě" TextColor="Black"/>
+                <Entry Keyboard="Default"/>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <!-- Button "Rozšířené nastavení" -->
+                    <Grid ColumnSpacing="0" x:Name="RozsireneNastaveni" BackgroundColor="LightGray" Margin="5,0" Grid.Column="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="35"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Button Pressed="RozsireneNastaveni_Pressed" Released="RozsireneNastaveni_Release" Clicked="RozsireneNastaveni_Clicked" BackgroundColor="Transparent" Grid.Column="0" HorizontalOptions="Fill"  />
+                        <ImageButton Pressed="RozsireneNastaveni_Pressed" Released="RozsireneNastaveni_Release" Clicked="RozsireneNastaveni_Clicked" Source="down.png" Grid.Column="1" BackgroundColor="Transparent" HorizontalOptions="End" WidthRequest="40" Padding="8"/>
+                        <Button Pressed="RozsireneNastaveni_Pressed" Released="RozsireneNastaveni_Release" Clicked="RozsireneNastaveni_Clicked" Text="Rozšířené nastavení" BackgroundColor="Transparent" Grid.Column="2" FontSize="11" FontAttributes="Bold" HorizontalOptions="Center"/>
+                        <Button Pressed="RozsireneNastaveni_Pressed" Released="RozsireneNastaveni_Release" Clicked="RozsireneNastaveni_Clicked" BackgroundColor="Transparent" Grid.Column="3" HorizontalOptions="Fill" WidthRequest="50"/>
+                        <Button Pressed="RozsireneNastaveni_Pressed" Released="RozsireneNastaveni_Release" Clicked="RozsireneNastaveni_Clicked" BackgroundColor="Transparent" Grid.Column="4" HorizontalOptions="Fill" />
+                    </Grid>
+                </Grid>
+                
+                <StackLayout IsVisible="False" x:Name="RozsireneNastaveni_Layout">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Expresní platba" TextColor="Black" Grid.Row="0" Grid.Column="0"/>
+                        <Switch IsToggled="false" Grid.Row="1" Grid.Column="0" HorizontalOptions="Center"/>
+                        <Label Text="Informace pro nerealizace platby" TextColor="Black" Grid.Row="0" Grid.Column="2"/>
+                        <Picker SelectedItem="SMS" x:Name="InfoPicker" Grid.Row="1" Grid.Column="2">
+                            <Picker.Items >
+                                <x:String>SMS</x:String>
+                                <x:String>Email</x:String>
+                            </Picker.Items>
+                        </Picker>
+                    </Grid>
+                    <Label Text="Kontakt" TextColor="Black"/>
+                    <Entry Keyboard="Default"/>
+                </StackLayout>
+                <Button Text="Zaplatit" TextColor="Black" FontAttributes="Bold" />
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

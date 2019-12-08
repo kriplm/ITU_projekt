@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!-- Autor: xvadur04 -->
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="ITU_mb.Stránky.Menu"
+             BackgroundImageSource="pokus.png">
+    <NavigationPage.TitleView>
+        <Label Text="Menu" HorizontalTextAlignment="Center" FontSize="35" FontAttributes="Bold" TextColor="White" />
+    </NavigationPage.TitleView>
+    
+    <ContentPage.Content>
+        <StackLayout>
+            <!-- Button "Nastavení" -->
+            <Grid ColumnSpacing="0" x:Name="Nastaveni" BackgroundColor="White" Margin="0,10,0,0" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Pressed="Nastaveni_Press" Released="Nastaveni_Release" Clicked="Nastaveni_Clicked" BackgroundColor="Transparent" Grid.Column="0" HorizontalOptions="Fill"  />
+                <ImageButton Pressed="Nastaveni_Press" Released="Nastaveni_Release" Clicked="Nastaveni_Clicked" Source="setting.png" Grid.Column="1" BackgroundColor="Transparent" HorizontalOptions="End" WidthRequest="50" Padding="8"/>
+                <Button Pressed="Nastaveni_Press" Released="Nastaveni_Release" Clicked="Nastaveni_Clicked" Text="Nastavení" BackgroundColor="Transparent" Grid.Column="2" HorizontalOptions="Center"/>
+                <Button Pressed="Nastaveni_Press" Released="Nastaveni_Release" Clicked="Nastaveni_Clicked" BackgroundColor="Transparent" Grid.Column="3" HorizontalOptions="Fill" WidthRequest="50"/>
+                <Button Pressed="Nastaveni_Press" Released="Nastaveni_Release" Clicked="Nastaveni_Clicked" BackgroundColor="Transparent" Grid.Column="4" HorizontalOptions="Fill" />
+            </Grid>
+            <!-- Button "Tipy" -->
+            <Grid ColumnSpacing="0" x:Name="Tipy" BackgroundColor="White" Margin="0,10,0,0" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Pressed="Tipy_Press" Released="Tipy_Release" Clicked="Tipy_Clicked" BackgroundColor="Transparent" Grid.Column="0" HorizontalOptions="Fill"  />
+                <ImageButton Pressed="Tipy_Press" Released="Tipy_Release" Clicked="Tipy_Clicked" Source="tip.png" Grid.Column="1" BackgroundColor="Transparent" HorizontalOptions="End" WidthRequest="50" Padding="8"/>
+                <Button Pressed="Tipy_Press" Released="Tipy_Release" Clicked="Tipy_Clicked" Text="Tipy" BackgroundColor="Transparent" Grid.Column="2" HorizontalOptions="Center"/>
+                <Button Pressed="Tipy_Press" Released="Tipy_Release" Clicked="Tipy_Clicked" BackgroundColor="Transparent" Grid.Column="3" HorizontalOptions="Fill" WidthRequest="50"/>
+                <Button Pressed="Tipy_Press" Released="Tipy_Release" Clicked="Tipy_Clicked" BackgroundColor="Transparent" Grid.Column="4" HorizontalOptions="Fill" />
+            </Grid>
+            <!-- Button "Kurzovní lístek" -->
+            <Grid ColumnSpacing="0" x:Name="Kurz" BackgroundColor="White" Margin="0,10,0,0" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Pressed="Kurz_Press" Released="Kurz_Release" Clicked="Kurz_Clicked" BackgroundColor="Transparent" Grid.Column="0" HorizontalOptions="Fill"  />
+                <ImageButton Pressed="Kurz_Press" Released="Kurz_Release" Clicked="Kurz_Clicked" Source="list.png" Grid.Column="1" BackgroundColor="Transparent" HorizontalOptions="End" WidthRequest="50" Padding="8"/>
+                <Button Pressed="Kurz_Press" Released="Kurz_Release" Clicked="Kurz_Clicked" Text="Kurzovní lístek" BackgroundColor="Transparent" Grid.Column="2" HorizontalOptions="Center"/>
+                <Button Pressed="Kurz_Press" Released="Kurz_Release" Clicked="Kurz_Clicked" BackgroundColor="Transparent" Grid.Column="3" HorizontalOptions="Fill" WidthRequest="50"/>
+                <Button Pressed="Kurz_Press" Released="Kurz_Release" Clicked="Kurz_Clicked" BackgroundColor="Transparent" Grid.Column="4" HorizontalOptions="Fill" />
+            </Grid>
+            <!-- Button "Kontakty" -->
+            <Grid ColumnSpacing="0" x:Name="Kontakt" BackgroundColor="White" Margin="0,10,0,0" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Pressed="Kontakt_Press" Released="Kontakt_Release" Clicked="Kontakt_Clicked" BackgroundColor="Transparent" Grid.Column="0" HorizontalOptions="Fill"  />
+                <ImageButton Pressed="Kontakt_Press" Released="Kontakt_Release" Clicked="Kontakt_Clicked" Source="kontakt.png" Grid.Column="1" BackgroundColor="Transparent" HorizontalOptions="End" WidthRequest="50" Padding="8"/>
+                <Button Pressed="Kontakt_Press" Released="Kontakt_Release" Clicked="Kontakt_Clicked" Text="Kontakty" BackgroundColor="Transparent" Grid.Column="2" HorizontalOptions="Center"/>
+                <Button Pressed="Kontakt_Press" Released="Kontakt_Release" Clicked="Kontakt_Clicked" BackgroundColor="Transparent" Grid.Column="3" HorizontalOptions="Fill" WidthRequest="50"/>
+                <Button Pressed="Kontakt_Press" Released="Kontakt_Release" Clicked="Kontakt_Clicked" BackgroundColor="Transparent" Grid.Column="4" HorizontalOptions="Fill" />
+            </Grid>
+            <!-- Button "Odhlásit se" -->
+            <Grid ColumnSpacing="0" x:Name="Out" BackgroundColor="White" Margin="0,10,0,0" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Pressed="Out_Press" Released="Out_Release" Clicked="Out_Clicked" BackgroundColor="Transparent" Grid.Column="0" HorizontalOptions="Fill"  />
+                <ImageButton Pressed="Out_Press" Released="Out_Release" Clicked="Out_Clicked" Source="out.png" Grid.Column="1" BackgroundColor="Transparent" HorizontalOptions="End" WidthRequest="50" Padding="8"/>
+                <Button Pressed="Out_Press" Released="Out_Release" Clicked="Out_Clicked" Text="Odhlásit se" BackgroundColor="Transparent" Grid.Column="2" HorizontalOptions="Center"/>
+                <Button Pressed="Out_Press" Released="Out_Release" Clicked="Out_Clicked" BackgroundColor="Transparent" Grid.Column="3" HorizontalOptions="Fill" WidthRequest="50"/>
+                <Button Pressed="Out_Press" Released="Out_Release" Clicked="Out_Clicked" BackgroundColor="Transparent" Grid.Column="4" HorizontalOptions="Fill" />
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

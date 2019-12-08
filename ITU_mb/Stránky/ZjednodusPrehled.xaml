@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!-- Autor: xhladi23 -->
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:Skripty="clr-namespace:ITU_mb.Skripty"
+             mc:Ignorable="d"
+             x:Class="ITU_mb.Stránky.ZjednodusPrehled"
+             BackgroundImageSource="pokus.png">
+    <ContentPage.BindingContext>
+        <Skripty:ViewModel/>
+    </ContentPage.BindingContext>
+
+    <NavigationPage.TitleView>
+        <Label Text="Jednoduchý přehled" HorizontalTextAlignment="Center" FontSize="35" FontAttributes="Bold" TextColor="White" />
+    </NavigationPage.TitleView>
+
+    <ContentPage.Content>
+        <StackLayout Spacing="5" BackgroundColor="Transparent" >
+            <Grid Padding="0" Margin="0,10,0,0" BackgroundColor="Black">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Skripty:ComboBox x:Name="Ucet_ComboBox" Title="Vyber účet" FontSize="25" FontAttributes="Bold" BackgroundColor="Black" TextColor="White" ItemsSource="{Binding Ucty}" ItemDisplayBinding="{Binding NazevUctu}" SelectedIndexChanged="VyberUcet" Visual="Material"/>
+                <Grid Grid.Row="1" BackgroundColor="White">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.2*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="0.2*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="1" Grid.Row="0" Text="Zůstatek:" FontAttributes="Bold" HorizontalTextAlignment="Start" TextColor="Black" FontSize="28" Margin="0,5,0,0" />
+                    <Label Grid.Column="1" Grid.Row="1" Text="Blokace:" FontAttributes="Bold" HorizontalTextAlignment="Start" TextColor="Black" FontSize="24" Margin="0,0,0,5"/>
+                    <Label Grid.Column="2" Grid.Row="0" x:Name="Zustatek_label" FontAttributes="Bold" HorizontalTextAlignment="End" TextColor="Black" FontSize="28" Margin="0,5,0,0"/>
+                    <Label Grid.Column="2" Grid.Row="1" x:Name="Blokace_label" FontAttributes="Bold" HorizontalTextAlignment="End" TextColor="Black" FontSize="24" Margin="0,0,0,5"/>
+                </Grid>
+            </Grid>
+            <!-- Button "Platba" -->
+            <Grid ColumnSpacing="0" x:Name="Platba" BackgroundColor="White" Margin="5,5,5,0" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="65"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Pressed="Platba_Press" Released="Platba_Release" Clicked="Platba_Clicked" BackgroundColor="Transparent" Grid.Column="0" HorizontalOptions="Fill"  />
+                <ImageButton Pressed="Platba_Press" Released="Platba_Release" Clicked="Platba_Clicked" Source="reply.png" Grid.Column="1" BackgroundColor="Transparent" HorizontalOptions="End" WidthRequest="60" Padding="8"/>
+                <Button Pressed="Platba_Press" Released="Platba_Release" Clicked="Platba_Clicked" Text="Platba" FontSize="22" FontAttributes="Bold" BackgroundColor="Transparent" Grid.Column="2" HorizontalOptions="Center"/>
+                <Button Pressed="Platba_Press" Released="Platba_Release" Clicked="Platba_Clicked" BackgroundColor="Transparent" Grid.Column="3" HorizontalOptions="Fill" WidthRequest="50"/>
+                <Button Pressed="Platba_Press" Released="Platba_Release" Clicked="Platba_Clicked" BackgroundColor="Transparent" Grid.Column="4" HorizontalOptions="Fill" />
+            </Grid>
+            <!-- Button "Grafy" -->
+            <Grid ColumnSpacing="0" x:Name="Graf" BackgroundColor="White" Margin="5,5,5,0" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="65"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Pressed="Grafy_Press" Released="Grafy_Release" Clicked="Grafy_Clicked" BackgroundColor="Transparent" Grid.Column="0" HorizontalOptions="Fill"  />
+                <ImageButton Pressed="Grafy_Press" Released="Grafy_Release" Clicked="Grafy_Clicked" Source="grafy.png" Grid.Column="1" BackgroundColor="Transparent" HorizontalOptions="End" WidthRequest="60" Padding="8"/>
+                <Button Pressed="Grafy_Press" Released="Grafy_Release" Clicked="Grafy_Clicked" Text="Grafy" FontSize="22" FontAttributes="Bold" BackgroundColor="Transparent" Grid.Column="2" HorizontalOptions="Center"/>
+                <Button Pressed="Grafy_Press" Released="Grafy_Release" Clicked="Grafy_Clicked" BackgroundColor="Transparent" Grid.Column="3" HorizontalOptions="Fill" WidthRequest="50"/>
+                <Button Pressed="Grafy_Press" Released="Grafy_Release" Clicked="Grafy_Clicked" BackgroundColor="Transparent" Grid.Column="4" HorizontalOptions="Fill" />
+            </Grid>
+            <!-- Button "Menu" -->
+            <Grid ColumnSpacing="0" x:Name="Menu" BackgroundColor="White" Margin="5,5,5,0" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="65"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Pressed="Menu_Press" Released="Menu_Release" Clicked="Menu_Clicked" BackgroundColor="Transparent" Grid.Column="0" HorizontalOptions="Fill"  />
+                <ImageButton Pressed="Menu_Press" Released="Menu_Release" Clicked="Menu_Clicked" Source="menu.png" Grid.Column="1" BackgroundColor="Transparent" HorizontalOptions="End" WidthRequest="60" Padding="8"/>
+                <Button Pressed="Menu_Press" Released="Menu_Release" Clicked="Menu_Clicked" Text="Menu" BackgroundColor="Transparent" Grid.Column="2" FontSize="22" FontAttributes="Bold" HorizontalOptions="Center"/>
+                <Button Pressed="Menu_Press" Released="Menu_Release" Clicked="Menu_Clicked" BackgroundColor="Transparent" Grid.Column="3" HorizontalOptions="Fill" WidthRequest="50"/>
+                <Button Pressed="Menu_Press" Released="Menu_Release" Clicked="Menu_Clicked" BackgroundColor="Transparent" Grid.Column="4" HorizontalOptions="Fill" />
+            </Grid>
+            <Label Text="Odchozí platby" FontSize="25" HorizontalTextAlignment="Center" FontAttributes="Bold" BackgroundColor="Black" TextColor="White" Margin="0,5,0,0" />
+            <ListView ItemsSource="{Binding Platby}" HasUnevenRows="True" BackgroundColor="Transparent" >
+                <ListView.ItemTemplate  >
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid BackgroundColor="Yellow" Margin="10,0,10,5" RowSpacing="5" >
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="48"/>
+                                </Grid.RowDefinitions>
+                                <Label Text="{Binding Castka, StringFormat=' {0} CZK'}" Grid.Column="0" VerticalTextAlignment="Center" FontSize="22" TextColor="Black" FontAttributes="Bold"/>
+                                <Label Text="{Binding Popis}" Grid.Column="1" VerticalTextAlignment="Center" FontSize="20" FontAttributes="Bold" TextColor="Black" HorizontalTextAlignment="Center"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

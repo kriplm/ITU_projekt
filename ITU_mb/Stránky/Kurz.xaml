@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!-- Autor: xhladi23 -->
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="ITU_mb.Stránky.Kurz"
+             xmlns:Skripty="clr-namespace:ITU_mb.Skripty"
+             BackgroundImageSource="pokus.png">
+    <NavigationPage.TitleView>
+        <Label Text="Kurzovní lístek" HorizontalTextAlignment="Center" FontSize="35" FontAttributes="Bold" TextColor="White"/>
+    </NavigationPage.TitleView>
+    
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid BackgroundColor="BurlyWood" Margin="5,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.7*"/>
+                    <ColumnDefinition Width="0.7*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <Label Text="Měna" Grid.Column="0" Grid.ColumnSpan="2" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="16" TextColor="Black" FontAttributes="Bold"/>
+                <Label Text="Země" Grid.Column="2" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="16" TextColor="Black" FontAttributes="Bold"/>
+                <Label Text="Množství" Grid.Column="3" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="16" TextColor="Black" FontAttributes="Bold"/>
+                <Label Text="Kurz" Grid.Column="4" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="16" TextColor="Black" FontAttributes="Bold"/>
+            </Grid>
+            <ListView x:Name="List" HasUnevenRows="True" BackgroundColor="Transparent">
+                <ListView.ItemTemplate  >
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid BackgroundColor="White" Margin="5,5,5,0" RowSpacing="10" >
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="0.7*"/>
+                                    <ColumnDefinition Width="0.7*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                </Grid.RowDefinitions>
+                                <Label Text="{Binding kod}" Grid.Column="0" VerticalTextAlignment="Center" HorizontalTextAlignment="End"/>
+                                <Label Text="{Binding mena}" Grid.Column="1" VerticalTextAlignment="Center" HorizontalTextAlignment="Start"/>
+                                <Label Text="{Binding zeme}" Grid.Column="2" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                                <Label Text="{Binding mnozstvi}" Grid.Column="3" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                                <Label Text="{Binding kurz, StringFormat=' {0} CZK'}" Grid.Column="4" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

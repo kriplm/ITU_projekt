@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!-- Autor: xprasi06 -->
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            x:Class="ITU_mb.Hl_Navigace"
+            xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+            xmlns:Stránky="clr-namespace:ITU_mb.Stránky;assembly=ITU_mb"
+            android:TabbedPage.ToolbarPlacement="Bottom"
+            android:TabbedPage.BarItemColor="White"
+            android:TabbedPage.BarSelectedItemColor="LightYellow"
+            BarBackgroundColor="Black">
+
+    <TabbedPage.Children>
+        <NavigationPage Title="Přehled" Icon="home.png" BarBackgroundColor="Black" >
+            <x:Arguments>
+                <Stránky:Hl_strana/>
+            </x:Arguments>
+        </NavigationPage>
+        <NavigationPage Title="Grafy" Icon="grafy.png" BarBackgroundColor="Black">
+            <x:Arguments>
+                <Stránky:Grafy/>
+            </x:Arguments>
+        </NavigationPage>
+        <NavigationPage Title="Platby" Icon="pay.png" BarBackgroundColor="Black">
+            <x:Arguments>
+                <Stránky:Platby/>
+            </x:Arguments>
+        </NavigationPage>
+        <NavigationPage Title="Kontrola" Icon="poducty.png" BarBackgroundColor="Black">
+            <x:Arguments>
+                <Stránky:Kontrola/>
+            </x:Arguments>
+        </NavigationPage>
+        <NavigationPage Title="Menu" Icon="menu.png" BarBackgroundColor="Black">
+            <x:Arguments>
+                <Stránky:Menu/>
+            </x:Arguments>
+        </NavigationPage>
+    </TabbedPage.Children>
+</TabbedPage>

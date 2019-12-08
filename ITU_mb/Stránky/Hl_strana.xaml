@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!-- Autor: xprasi06 -->
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="ITU_mb"
+             xmlns:Skripty="clr-namespace:ITU_mb.Skripty"
+             mc:Ignorable="d"
+             xmlns:chart="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms"
+             x:Class="ITU_mb.Stránky.Hl_strana">
+
+    <ContentPage.BindingContext>
+        <Skripty:ViewModel/>
+    </ContentPage.BindingContext>
+
+    <NavigationPage.TitleView>
+        <Label Grid.Column="1" Text="Hlavní přehled" HorizontalTextAlignment="Center" FontSize="30" FontAttributes="Bold" TextColor="White" />
+    </NavigationPage.TitleView>
+    
+    <ContentPage.Content>
+        
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Image Source="pokus.png" Aspect="AspectFill"/>
+            <ListView ItemsSource="{Binding Ucty}" Grid.Column="0" Grid.Row="0"
+                      ItemTapped="ListView_ZobrazUcet"
+                      x:Name="ListUctu" 
+                      HasUnevenRows="True" BackgroundColor="Transparent">
+                <ListView.ItemTemplate>
+                    <DataTemplate >
+                        <ViewCell >
+                            <Grid Padding="0" Margin="0,10,0,0" BackgroundColor="Black">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="0" Grid.Row="0" Text="{Binding NazevUctu}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontAttributes="Bold" TextColor="White" BackgroundColor="Black" FontSize="Large"/>
+                                <Grid Grid.Row="1" BackgroundColor="#eff0f1">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="0.2*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="0.2*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Grid.Column="1" Grid.Row="0" Text="Zůstatek:" FontAttributes="Bold" HorizontalTextAlignment="Start" TextColor="Black" FontSize="25" Margin="0,5,0,0" />
+                                    <Label Grid.Column="1" Grid.Row="1" Text="Blokace:" FontAttributes="Bold" HorizontalTextAlignment="Start" TextColor="Black" FontSize="22" Margin="0"/>
+                                    <Label Grid.Column="2" Grid.Row="0" Text="{Binding Zustatek, StringFormat=' {0} CZK'}" FontAttributes="Bold" HorizontalTextAlignment="End" TextColor="Black" FontSize="25" Margin="0,5,0,0"/>
+                                    <Label Grid.Column="2" Grid.Row="1" Text="{Binding Blokace, StringFormat='{0} CZK'}" FontAttributes="Bold" HorizontalTextAlignment="End" TextColor="Black" FontSize="22" Margin="0"/>
+                                    <Button Grid.Column="2" Grid.Row="2" BorderColor="Black" FontAttributes="Bold" BorderWidth="4" BackgroundColor="Silver" CornerRadius="35" CommandParameter="{Binding NazevUctu}" Text="Historie pohybů" Clicked="HistoriePohybu_Clicked" FontSize="15" HeightRequest="40" TextColor="Black" />
+                                    <BoxView Grid.ColumnSpan="4" Grid.Row="3" BackgroundColor="Black" HeightRequest="10" IsVisible="{Binding IsVisible}"/>
+                                    <chart:ChartView Chart="{Binding Graf}" Grid.Row="4" Grid.ColumnSpan="4"  HeightRequest="120"  IsVisible="{Binding IsVisible}" />
+                                </Grid>
+                                <Image Source="menu_white.png" BackgroundColor="Black" Aspect="AspectFit" Grid.Row="2" HeightRequest="10"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

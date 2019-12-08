@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!-- Autor: xprasi06 -->
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:chart="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms" 
+             xmlns:Skripty="clr-namespace:ITU_mb.Skripty"
+             x:Class="ITU_mb.Stránky.Grafy"
+             BackgroundColor="#e6ebff">
+
+    <ContentPage.BindingContext>
+        <Skripty:ViewModel/>
+    </ContentPage.BindingContext>
+    
+    <NavigationPage.TitleView>
+        <Label Text="Grafy" HorizontalTextAlignment="Center" FontSize="30" FontAttributes="Bold" TextColor="White" />
+    </NavigationPage.TitleView>
+
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="Transparent" >
+            <Label Text="Příjmy a výdaje" FontSize="25" Margin="20,0,0,0" TextColor="Black" />
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="5"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="5"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="5"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="5"/>
+                </Grid.ColumnDefinitions>
+                <StackLayout Grid.Column="1" Spacing="-15">
+                    <chart:ChartView x:Name="chart1" Chart="{Binding Graf1}" HeightRequest="140" BackgroundColor="Transparent"/>
+                    <Label Text="Srpen" FontSize="17" HorizontalTextAlignment="Center" TextColor="Black"/>
+                </StackLayout>
+                <StackLayout Grid.Column="3" Spacing="-15">
+                    <chart:ChartView x:Name="chart2" Chart="{Binding Graf2}" HeightRequest="140" BackgroundColor="Transparent"/>
+                    <Label Text="Září" FontSize="17" HorizontalTextAlignment="Center" TextColor="Black"/>
+                </StackLayout>
+                <StackLayout Grid.Column="5" Spacing="-15">
+                    <chart:ChartView x:Name="chart3" Chart="{Binding Graf3}" HeightRequest="140" BackgroundColor="Transparent"/>
+                    <Label Text="Říjen" FontSize="17" HorizontalTextAlignment="Center"  TextColor="Black"/>
+                </StackLayout>
+                <StackLayout Grid.Column="7" Spacing="-15">
+                    <chart:ChartView x:Name="chart4" Chart="{Binding Graf4}" HeightRequest="140" BackgroundColor="Transparent"/>
+                    <Label Text="Listopad" FontSize="17" HorizontalTextAlignment="Center" TextColor="Black"/>
+                </StackLayout>
+            </Grid>
+            <BoxView BackgroundColor="Black" HeightRequest="5"/>
+            <Label Text="Kategorie útrat" FontSize="25" Margin="20,0,0,0" TextColor="Black" />
+            <chart:ChartView x:Name="chart5" Chart="{Binding Graf5}" HeightRequest="200" BackgroundColor="Transparent"/>
+            <BoxView BackgroundColor="Black" HeightRequest="5"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!-- Autor: xvadur04 -->
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:Skripty="clr-namespace:ITU_mb.Skripty"
+             mc:Ignorable="d"
+             x:Class="ITU_mb.Stránky.Kontrola"
+             BackgroundImageSource="pokus.png">
+    <ContentPage.BindingContext>
+        <Skripty:ViewModel/>
+    </ContentPage.BindingContext>
+
+    <NavigationPage.TitleView>
+        <Label Text="Kontrola" HorizontalTextAlignment="Center" FontSize="30" FontAttributes="Bold" TextColor="White" />
+    </NavigationPage.TitleView>
+    
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid Padding="0" Margin="0,10,0,0" BackgroundColor="Black">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="45" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Skripty:ComboBox x:Name="ComboBox" Grid.Row="0" Title="Vyber účet" FontSize="20" FontAttributes="Bold" BackgroundColor="Black" TextColor="White" ItemsSource="{Binding Ucty}" ItemDisplayBinding="{Binding NazevUctu}" SelectedIndexChanged="VyberUcet"  Visual="Material" VerticalOptions="Start" HeightRequest="45" Margin="0,2,0,0"/>
+                <Grid Grid.Row="1" BackgroundColor="White">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.2*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="0.2*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="1" Grid.Row="0" Text="Majitel: " FontAttributes="Bold" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" TextColor="Black" FontSize="24" Margin="0,5,0,0"/>
+                    <Label Grid.Column="2" Grid.Row="0" Text="Pokusný králík" FontAttributes="Bold" HorizontalTextAlignment="End" VerticalTextAlignment="Center" TextColor="Black" FontSize="24" Margin="0,5,0,0"/>
+                    <Label Grid.Column="1" Grid.Row="1" Text="Zůstatek:" FontAttributes="Bold" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" TextColor="Black" FontSize="24" Margin="0,5" />
+                    <Label Grid.Column="1" Grid.Row="2" Text="Blokace:" FontAttributes="Bold" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" TextColor="Black" FontSize="24" Margin="0,0,0,5"/>
+                    <Label Grid.Column="2" Grid.Row="1" Text="10000 CZK" x:Name="Zustatek" FontAttributes="Bold" HorizontalTextAlignment="End" VerticalTextAlignment="Center" TextColor="Black" FontSize="24" Margin="0,5"/>
+                    <Label Grid.Column="2" Grid.Row="2" Text="5000 CZK" x:Name="Blokace" FontAttributes="Bold" HorizontalTextAlignment="End" VerticalTextAlignment="Center" TextColor="Black" FontSize="24" Margin="0,0,0,5"/>
+                </Grid>
+            </Grid>
+            <Label Text="Historie" TextColor="White" TextDecorations="None" FontAttributes="Bold" FontSize="28" HorizontalOptions="Center" BackgroundColor="Transparent"/>
+            <ListView ItemsSource="{Binding Platby}" HasUnevenRows="True" BackgroundColor="Transparent">
+                <ListView.ItemTemplate  >
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid BackgroundColor="Yellow" Margin="10,0,10,5" RowSpacing="5" >
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="0.3*"/>
+                                    <ColumnDefinition Width="0.3*"/>
+                                    <ColumnDefinition Width="0.05*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                </Grid.RowDefinitions>
+                                <Label Text="{Binding Castka, StringFormat=' {0} CZK'}" Grid.Column="0" VerticalTextAlignment="Center"/>
+                                <Label Text="{Binding Popis}" Grid.Column="1" VerticalTextAlignment="Center"/>
+                                <ImageButton Source="yes.png" Grid.Column="2" HeightRequest="45" WidthRequest="45" Aspect="AspectFit" VerticalOptions="Center" HorizontalOptions="Center"/>
+                                <ImageButton Source="no.png" Grid.Column="3" HeightRequest="45" WidthRequest="45" Aspect="AspectFit" VerticalOptions="Center" HorizontalOptions="Center"/>
+
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

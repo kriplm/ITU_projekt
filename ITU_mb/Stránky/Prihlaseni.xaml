@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!-- Autor: xvadur04 -->
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="ITU_mb.Stránky.Prihlaseni"
+             BackgroundImageSource="pokus.png"
+             xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:app="http://schemas.android.com/apk/res-auto">
+    
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="ITU" FontSize="Header" HorizontalOptions="Center" FontAttributes="Bold" TextColor="Maroon" HorizontalTextAlignment="Center" VerticalTextAlignment="Center">
+                <Label.FontFamily>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="Android" Value="Nosifer-Regular.ttf#Nosifer-Regular"/>
+                    </OnPlatform>
+                </Label.FontFamily>
+            </Label>
+            <Label Text="Mobilní bankovnictví" FontSize="26" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontAttributes="Bold" TextColor="DarkRed">
+                <Label.FontFamily>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="Android" Value="Nosifer-Regular.ttf#Nosifer-Regular"/>
+                    </OnPlatform>
+                </Label.FontFamily>
+            </Label>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Entry x:Name="Entry_Pin" Grid.Column="2"  IsPassword="True" Margin="0,80,0,0" Keyboard="Numeric" MaxLength="4" FontSize="40" BackgroundColor="Transparent" />
+            </Grid>
+            <Button Text="Přihásit" BackgroundColor="LightYellow" FontAttributes="Bold" Clicked="PrihlasitSe" Margin="30" BorderWidth="3" BorderColor="Black" CornerRadius="45"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
