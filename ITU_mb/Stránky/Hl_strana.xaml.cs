@@ -17,11 +17,12 @@ namespace ITU_mb.Stránky
         public Hl_strana()
         {
             InitializeComponent();
+
         }
 
         private void ListView_ZobrazUcet(object sender, ItemTappedEventArgs e)
         {
-            var vm = BindingContext as Skripty.ViewModel;
+            var vm = BindingContext as Skripty.Model;
             var ucet = e.Item as Skripty.Ucet;
             vm.RozsirSkryjUcet(ucet);
             

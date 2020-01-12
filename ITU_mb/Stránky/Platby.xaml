@@ -10,7 +10,7 @@
              x:Class="ITU_mb.Stránky.Platby">
 
     <ContentPage.BindingContext>
-        <Skripty:ViewModel/>
+        <Skripty:Model/>
     </ContentPage.BindingContext>
 
     <NavigationPage.TitleView>
@@ -45,19 +45,19 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="auto"/>
                     </Grid.RowDefinitions>
-                    <Entry Keyboard="Numeric" Grid.Column="0" MaxLength="6" />
+                    <Entry x:Name="Predcisli_entry" Keyboard="Numeric" Grid.Column="0" MaxLength="6" Text="{Binding PredCisli}"/>
                     <Label Text=" - " Grid.Column="1" VerticalTextAlignment="Center" TextColor="Black"/>
-                    <Entry Keyboard="Telephone" Grid.Column="2" MaxLength="10"/>
-                    <Label Text=" / " Grid.Column="3" VerticalTextAlignment="Center" TextColor="Black"/>
-                    <Entry Keyboard="Numeric" Grid.Column="4" MaxLength="4"/>
+                    <Entry x:Name="Cislouctu_entry" Keyboard="Numeric" Grid.Column="2" MaxLength="10" Text="{Binding CisloUctu}"/>
+                    <Label Text=" / " Grid.Column="3" VerticalTextAlignment="Center" TextColor="Black" />
+                    <Entry x:Name="KodBanky_entry" Keyboard="Numeric" Grid.Column="4" MaxLength="4" Text="{Binding KodBanky}"/>
                 </Grid>
-                <Label Text="Částka" TextColor="Black"/>
+                <Label Text="Částka" TextColor="Black" />
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="5*"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <Entry Keyboard="Numeric" Grid.Column="0"/>
+                    <Entry x:Name="Castka_entry" Keyboard="Numeric" Grid.Column="0" Text="{Binding Castka}" />
                     <Picker SelectedItem="SMS" x:Name="MenaPicker" Grid.Column="1" SelectedIndexChanged="ZmenaMeny">
                         <Picker.Items >
                             <x:String>CZK</x:String>
@@ -81,17 +81,17 @@
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
-                    <Label Text="Variabilní symbol" Grid.Column="0" Grid.Row="0" HorizontalTextAlignment="Center" TextColor="Black"/>
-                    <Entry Keyboard="Numeric" Grid.Column="0" Grid.Row="1" MaxLength="10"/>
+                    <Label  Text="Variabilní symbol" Grid.Column="0" Grid.Row="0" HorizontalTextAlignment="Center" TextColor="Black"/>
+                    <Entry x:Name="Varsymb_entry" Keyboard="Numeric" Grid.Column="0" Grid.Row="1" MaxLength="10"/>
                     <Label Text="Konstatní symbol" Grid.Column="2" Grid.Row="0" HorizontalTextAlignment="Center" TextColor="Black"/>
-                    <Entry Keyboard="Numeric" Grid.Column="2" Grid.Row="1" MaxLength="10"/>
+                    <Entry x:Name="Konstsymb_entry" Keyboard="Numeric" Grid.Column="2" Grid.Row="1" MaxLength="10"/>
                     <Label Text="Specifický symbol" Grid.Column="4" Grid.Row="0" HorizontalTextAlignment="Center" TextColor="Black"/>
-                    <Entry Keyboard="Numeric" Grid.Column="4" Grid.Row="1" MaxLength="10"/>
+                    <Entry x:Name="Specsymb_entry" Keyboard="Numeric" Grid.Column="4" Grid.Row="1" MaxLength="10"/>
                 </Grid>
                 <Label Text="Zpráva pro příjemce" TextColor="Black"/>
-                <Entry Keyboard="Default"/>
+                <Entry x:Name="ZpravaPrijemce_entry" Keyboard="Default"/>
                 <Label Text="Zpráva pro mě" TextColor="Black"/>
-                <Entry Keyboard="Default"/>
+                <Entry x:Name="ZpravaProMe_entry" Keyboard="Default"/>
 
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -142,7 +142,7 @@
                     <Label Text="Kontakt" TextColor="Black"/>
                     <Entry Keyboard="Default"/>
                 </StackLayout>
-                <Button Text="Zaplatit" TextColor="Black" FontAttributes="Bold" />
+                <Button Text="Zaplatit" TextColor="Black" FontAttributes="Bold" Command="{Binding AddPlatba_comand}" Clicked="Button_Clicked"/>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

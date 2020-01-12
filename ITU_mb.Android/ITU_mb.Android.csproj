@@ -80,6 +80,9 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\Nosifer-Regular.ttf" />
+    <AndroidAsset Include="Assets\VIPNAGOR.ttf" />
+    <AndroidAsset Include="Assets\HappyPhantom.ttf" />
+    <AndroidAsset Include="Assets\Quad Ultra.otf" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
     <None Include="Properties\AndroidManifest.xml" />
@@ -167,6 +170,12 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\visib.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\filter.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

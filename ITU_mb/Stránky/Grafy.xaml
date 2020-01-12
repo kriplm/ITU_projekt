@@ -11,7 +11,7 @@
              BackgroundColor="#e6ebff">
 
     <ContentPage.BindingContext>
-        <Skripty:ViewModel/>
+        <Skripty:Model/>
     </ContentPage.BindingContext>
     
     <NavigationPage.TitleView>

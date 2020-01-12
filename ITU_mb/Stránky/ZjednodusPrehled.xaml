@@ -9,7 +9,7 @@
              x:Class="ITU_mb.Stránky.ZjednodusPrehled"
              BackgroundImageSource="pokus.png">
     <ContentPage.BindingContext>
-        <Skripty:ViewModel/>
+        <Skripty:Model/>
     </ContentPage.BindingContext>
 
     <NavigationPage.TitleView>
@@ -103,20 +103,22 @@
                 <Button Pressed="Menu_Press" Released="Menu_Release" Clicked="Menu_Clicked" BackgroundColor="Transparent" Grid.Column="4" HorizontalOptions="Fill" />
             </Grid>
             <Label Text="Odchozí platby" FontSize="25" HorizontalTextAlignment="Center" FontAttributes="Bold" BackgroundColor="Black" TextColor="White" Margin="0,5,0,0" />
-            <ListView ItemsSource="{Binding Platby}" HasUnevenRows="True" BackgroundColor="Transparent" >
-                <ListView.ItemTemplate  >
+            <ListView ItemsSource="{Binding Zjed_Platby}" HasUnevenRows="True" BackgroundColor="Transparent" x:Name="Listik" >
+                <ListView.ItemTemplate >
                     <DataTemplate>
                         <ViewCell>
-                            <Grid BackgroundColor="Yellow" Margin="10,0,10,5" RowSpacing="5" >
+                            <Grid x:Name="gridos" BackgroundColor="{Binding Barva}" Margin="10,0,10,5" RowSpacing="5" >
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="auto"/>
                                     <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="auto"/>
                                 </Grid.ColumnDefinitions>
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="48"/>
                                 </Grid.RowDefinitions>
                                 <Label Text="{Binding Castka, StringFormat=' {0} CZK'}" Grid.Column="0" VerticalTextAlignment="Center" FontSize="22" TextColor="Black" FontAttributes="Bold"/>
-                                <Label Text="{Binding Popis}" Grid.Column="1" VerticalTextAlignment="Center" FontSize="20" FontAttributes="Bold" TextColor="Black" HorizontalTextAlignment="Center"/>
+                                <Label Text="{Binding CisloUctu}" Grid.Column="1" VerticalTextAlignment="Center" FontSize="20" FontAttributes="Bold" TextColor="Black" HorizontalTextAlignment="Center"/>
+                                <ImageButton Source="visib.png" Grid.Column="2" HeightRequest="45" WidthRequest="45" Aspect="AspectFit" VerticalOptions="Center" HorizontalOptions="Center" CommandParameter="{Binding CisloUctu}" Clicked="ImageButton_Clicked" />
                             </Grid>
                         </ViewCell>
                     </DataTemplate>

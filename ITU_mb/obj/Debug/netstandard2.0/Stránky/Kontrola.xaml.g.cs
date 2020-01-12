@@ -26,11 +26,15 @@ namespace ITU_mb.Stránky {
         private global::Xamarin.Forms.Label Blokace;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
+        private global::Xamarin.Forms.ListView List;
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private void InitializeComponent() {
             global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(Kontrola));
             ComboBox = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::ITU_mb.Skripty.ComboBox>(this, "ComboBox");
             Zustatek = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Label>(this, "Zustatek");
             Blokace = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Label>(this, "Blokace");
+            List = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.ListView>(this, "List");
         }
     }
 }

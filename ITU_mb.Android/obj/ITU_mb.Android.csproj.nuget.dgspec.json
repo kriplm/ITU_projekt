@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\VS projects\\ITU_projekt\\ITU_mb.Android\\ITU_mb.Android.csproj": {}
+    "D:\\VS projects\\ITU_mb\\ITU_mb.Android\\ITU_mb.Android.csproj": {}
   },
   "projects": {
-    "D:\\VS projects\\ITU_projekt\\ITU_mb.Android\\ITU_mb.Android.csproj": {
+    "D:\\VS projects\\ITU_mb\\ITU_mb.Android\\ITU_mb.Android.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\VS projects\\ITU_projekt\\ITU_mb.Android\\ITU_mb.Android.csproj",
+        "projectUniqueName": "D:\\VS projects\\ITU_mb\\ITU_mb.Android\\ITU_mb.Android.csproj",
         "projectName": "ITU_mb.Android",
-        "projectPath": "D:\\VS projects\\ITU_projekt\\ITU_mb.Android\\ITU_mb.Android.csproj",
+        "projectPath": "D:\\VS projects\\ITU_mb\\ITU_mb.Android\\ITU_mb.Android.csproj",
         "packagesPath": "C:\\Users\\skrat\\.nuget\\packages\\",
-        "outputPath": "D:\\VS projects\\ITU_projekt\\ITU_mb.Android\\obj\\",
+        "outputPath": "D:\\VS projects\\ITU_mb\\ITU_mb.Android\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [
@@ -32,8 +32,8 @@
         "frameworks": {
           "monoandroid90": {
             "projectReferences": {
-              "D:\\VS projects\\ITU_projekt\\ITU_mb\\ITU_mb.csproj": {
-                "projectPath": "D:\\VS projects\\ITU_projekt\\ITU_mb\\ITU_mb.csproj"
+              "D:\\VS projects\\ITU_mb\\ITU_mb\\ITU_mb.csproj": {
+                "projectPath": "D:\\VS projects\\ITU_mb\\ITU_mb\\ITU_mb.csproj"
               }
             }
           }
@@ -66,14 +66,14 @@
         }
       }
     },
-    "D:\\VS projects\\ITU_projekt\\ITU_mb\\ITU_mb.csproj": {
+    "D:\\VS projects\\ITU_mb\\ITU_mb\\ITU_mb.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\VS projects\\ITU_projekt\\ITU_mb\\ITU_mb.csproj",
+        "projectUniqueName": "D:\\VS projects\\ITU_mb\\ITU_mb\\ITU_mb.csproj",
         "projectName": "ITU_mb",
-        "projectPath": "D:\\VS projects\\ITU_projekt\\ITU_mb\\ITU_mb.csproj",
+        "projectPath": "D:\\VS projects\\ITU_mb\\ITU_mb\\ITU_mb.csproj",
         "packagesPath": "C:\\Users\\skrat\\.nuget\\packages\\",
-        "outputPath": "D:\\VS projects\\ITU_projekt\\ITU_mb\\obj\\",
+        "outputPath": "D:\\VS projects\\ITU_mb\\ITU_mb\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",

@@ -12,6 +12,14 @@ namespace ITU_mb.Stránky
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ZjednodusPrehled : ContentPage
     {
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            var bc = BindingContext as Skripty.Model;
+            bc.LoadModel();
+            Listik.ItemsSource = null;
+            Listik.ItemsSource = bc.Zjed_Platby;
+        }
         public ZjednodusPrehled()
         {
             InitializeComponent();
@@ -66,5 +74,18 @@ namespace ITU_mb.Stránky
         {
             Menu.BackgroundColor = Color.White;
         }
+
+        private void ImageButton_Clicked(object sender, EventArgs e)
+        {
+            var popis = (sender as ImageButton).CommandParameter;
+            var bc = BindingContext as Skripty.Model;
+            var kontrola = bc.Zjed_Platby.Where(x => x.CisloUctu == Convert.ToString(popis)).FirstOrDefault();
+            if (kontrola.Potvrzeni != 0)
+            {
+                bc.Zjed_Platby.Remove(kontrola);
+                bc.SaveModel();
+            }
+        }
+
     }
 }

@@ -9,7 +9,7 @@
              x:Class="ITU_mb.Stránky.Kontrola"
              BackgroundImageSource="pokus.png">
     <ContentPage.BindingContext>
-        <Skripty:ViewModel/>
+        <Skripty:Model/>
     </ContentPage.BindingContext>
 
     <NavigationPage.TitleView>
@@ -50,11 +50,11 @@
                 </Grid>
             </Grid>
             <Label Text="Historie" TextColor="White" TextDecorations="None" FontAttributes="Bold" FontSize="28" HorizontalOptions="Center" BackgroundColor="Transparent"/>
-            <ListView ItemsSource="{Binding Platby}" HasUnevenRows="True" BackgroundColor="Transparent">
-                <ListView.ItemTemplate  >
+            <ListView ItemsSource="{Binding Platby_Kontrola}" HasUnevenRows="True" BackgroundColor="Transparent" x:Name="List">
+                <ListView.ItemTemplate >
                     <DataTemplate>
                         <ViewCell>
-                            <Grid BackgroundColor="Yellow" Margin="10,0,10,5" RowSpacing="5" >
+                            <Grid BackgroundColor="Yellow" Margin="10,0,10,5" RowSpacing="5">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="*"/>
@@ -65,10 +65,10 @@
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="auto"/>
                                 </Grid.RowDefinitions>
-                                <Label Text="{Binding Castka, StringFormat=' {0} CZK'}" Grid.Column="0" VerticalTextAlignment="Center"/>
-                                <Label Text="{Binding Popis}" Grid.Column="1" VerticalTextAlignment="Center"/>
-                                <ImageButton Source="yes.png" Grid.Column="2" HeightRequest="45" WidthRequest="45" Aspect="AspectFit" VerticalOptions="Center" HorizontalOptions="Center"/>
-                                <ImageButton Source="no.png" Grid.Column="3" HeightRequest="45" WidthRequest="45" Aspect="AspectFit" VerticalOptions="Center" HorizontalOptions="Center"/>
+                                <Label Text="{Binding Castka, StringFormat=' {0} CZK'}" TextColor="Black" Grid.Column="0" VerticalTextAlignment="Center"/>
+                                <Label Text="{Binding CisloUctu}" Grid.Column="1" TextColor="Black" VerticalTextAlignment="Center"/>
+                                <ImageButton Source="yes.png" Grid.Column="2" HeightRequest="45" WidthRequest="45" Aspect="AspectFit" VerticalOptions="Center" HorizontalOptions="Center" CommandParameter="{Binding CisloUctu}" Clicked="yes_skryj_Clicked" />
+                                <ImageButton Source="no.png" Grid.Column="3" HeightRequest="45" WidthRequest="45" Aspect="AspectFit" VerticalOptions="Center" HorizontalOptions="Center" CommandParameter="{Binding CisloUctu}" Clicked="no_skryj_Clicked" />
 
                             </Grid>
                         </ViewCell>

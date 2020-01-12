@@ -9,9 +9,13 @@
              xmlns:Skripty="clr-namespace:ITU_mb.Skripty"
              BackgroundImageSource="pokus.png">
     <NavigationPage.TitleView>
-        <Label Text="Kurzovní lístek" HorizontalTextAlignment="Center" FontSize="35" FontAttributes="Bold" TextColor="White"/>
+        <Label Grid.Column="0" Text="Kurzovní lístek" HorizontalTextAlignment="Center" FontSize="30" FontAttributes="Bold" TextColor="White" WidthRequest="0"/>
     </NavigationPage.TitleView>
-    
+
+    <ContentPage.BindingContext>
+        <Skripty:Model/>
+    </ContentPage.BindingContext>
+
     <ContentPage.Content>
         <StackLayout>
             <Grid BackgroundColor="BurlyWood" Margin="5,0">
@@ -55,6 +59,7 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+            <ImageButton BackgroundColor="Gray" Source="filter.png" HeightRequest="45" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Clicked="ImageButton_Clicked" x:Name="Filter" Padding="5,5,5,5" Margin="5,0,5,5"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

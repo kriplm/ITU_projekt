@@ -11,26 +11,31 @@ namespace ITU_mb.Stránky
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Kurz : ContentPage
     {
+
         public Kurz()
         {
             InitializeComponent();
-            StahnoutAktualniKurz();
+            var bc = BindingContext as Skripty.Model;
+            bc.LoadModel();
+            if (!bc.StahnoutAktualniKurz()) { }
+            bc.AktualizaceKurzListu();
+            List.ItemsSource = bc.Listek_filtr;
+            bc.SaveModel();
         }
 
-        private void StahnoutAktualniKurz()
+        protected override void OnAppearing()
         {
-            string url = "https://www.cnb.cz/cs/financni_trhy/devizovy_trh/kurzy_devizoveho_trhu/denni_kurz.xml";
+            base.OnAppearing();
+            var bc = BindingContext as Skripty.Model;
+            bc.LoadModel();
+            bc.AktualizaceKurzListu();
+            List.ItemsSource = null;
+            List.ItemsSource = bc.Listek_filtr;
+        }
 
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
-            request.AutomaticDecompression = DecompressionMethods.GZip;
-
-            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-
-            Stream responseStream = response.GetResponseStream();
-
-            XmlSerializer serializer = new XmlSerializer(typeof(kurzy));
-            kurzy listKurzu = (kurzy)serializer.Deserialize(responseStream);
-            List.ItemsSource = listKurzu.tabulka[0].radek;
+        private void ImageButton_Clicked(object sender, System.EventArgs e)
+        {
+            Navigation.PushAsync(new FilterListku());
         }
     }
 }

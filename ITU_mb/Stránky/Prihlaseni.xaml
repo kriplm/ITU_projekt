@@ -6,23 +6,28 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="ITU_mb.Stránky.Prihlaseni"
+             xmlns:Skripty="clr-namespace:ITU_mb.Skripty"
              BackgroundImageSource="pokus.png"
              xmlns:android="http://schemas.android.com/apk/res/android"
              xmlns:app="http://schemas.android.com/apk/res-auto">
-    
+
+    <ContentPage.BindingContext>
+        <Skripty:Model/>
+    </ContentPage.BindingContext>
+
     <ContentPage.Content>
         <StackLayout>
             <Label Text="ITU" FontSize="Header" HorizontalOptions="Center" FontAttributes="Bold" TextColor="Maroon" HorizontalTextAlignment="Center" VerticalTextAlignment="Center">
                 <Label.FontFamily>
                     <OnPlatform x:TypeArguments="x:String">
-                        <On Platform="Android" Value="Nosifer-Regular.ttf#Nosifer-Regular"/>
+                        <On Platform="Android" Value="Quad Ultra.otf#Quad Ultra"/>
                     </OnPlatform>
                 </Label.FontFamily>
             </Label>
             <Label Text="Mobilní bankovnictví" FontSize="26" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontAttributes="Bold" TextColor="DarkRed">
                 <Label.FontFamily>
                     <OnPlatform x:TypeArguments="x:String">
-                        <On Platform="Android" Value="Nosifer-Regular.ttf#Nosifer-Regular"/>
+                        <On Platform="Android" Value="Quad Ultra.otf#Quad Ultra"/>
                     </OnPlatform>
                 </Label.FontFamily>
             </Label>

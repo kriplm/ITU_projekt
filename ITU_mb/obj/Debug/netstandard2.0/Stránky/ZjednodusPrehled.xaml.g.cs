@@ -35,6 +35,9 @@ namespace ITU_mb.Stránky {
         private global::Xamarin.Forms.Grid Menu;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
+        private global::Xamarin.Forms.ListView Listik;
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private void InitializeComponent() {
             global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(ZjednodusPrehled));
             Ucet_ComboBox = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::ITU_mb.Skripty.ComboBox>(this, "Ucet_ComboBox");
@@ -43,6 +46,7 @@ namespace ITU_mb.Stránky {
             Platba = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Grid>(this, "Platba");
             Graf = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Grid>(this, "Graf");
             Menu = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Grid>(this, "Menu");
+            Listik = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.ListView>(this, "Listik");
         }
     }
 }

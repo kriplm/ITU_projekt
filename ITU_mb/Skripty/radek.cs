@@ -17,6 +17,8 @@ namespace ITU_mb.Skripty
         public string kurz { get; set; }
         [XmlAttribute(AttributeName = "zeme")]
         public string zeme { get; set; }
+        public string potvrzeno { get; set; }
+        public bool check { get; set; }
 
     }
 }

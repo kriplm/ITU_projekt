@@ -11,7 +11,7 @@
              x:Class="ITU_mb.Stránky.Hl_strana">
 
     <ContentPage.BindingContext>
-        <Skripty:ViewModel/>
+        <Skripty:Model/>
     </ContentPage.BindingContext>
 
     <NavigationPage.TitleView>
